@@ -12,7 +12,7 @@
   --r:8px;--sh:0 1px 3px rgba(0,0,0,.1);--sh2:0 2px 8px rgba(0,0,0,.13);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;background:var(--g0);color:var(--g9);font-size:15px;line-height:1.5}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--g0);color:var(--g9);font-size:18px;line-height:1.6}
 button{font-family:inherit;cursor:pointer}
 input,select,textarea{font-family:inherit}
 .hdr{background:var(--b8);position:sticky;top:0;z-index:100;border-bottom:3px solid var(--b7)}
@@ -27,17 +27,17 @@ input,select,textarea{font-family:inherit}
 .hst-n{font-size:22px;font-weight:800;color:#fff;line-height:1}
 .hst-n.am{color:#fbbf24}.hst-n.rd{color:#f87171}.hst-n.gn{color:#4ade80}
 .hst-l{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-top:2px}
-.btn-new{padding:10px 20px;background:#fff;color:var(--b7);border:2px solid var(--b5);border-radius:var(--r);font-size:15px;font-weight:800;white-space:nowrap;box-shadow:var(--sh)}
+.btn-new{padding:10px 20px;background:#fff;color:var(--b7);border:2px solid var(--b5);border-radius:var(--r);font-size:17px;font-weight:800;white-space:nowrap;box-shadow:var(--sh)}
 .btn-new:hover{background:var(--b0)}
 .ctag{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px}
 .ctag.on{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3)}
 .ctag.off{background:rgba(251,191,36,.15);color:#fbbf24;border:1px solid rgba(251,191,36,.3)}
 .tabs{background:#fff;border-bottom:2px solid var(--g2);position:sticky;top:64px;z-index:90}
 .tabs-in{max-width:1300px;margin:0 auto;padding:0 20px;display:flex}
-.tab{padding:13px 22px;font-size:15px;font-weight:700;color:var(--g5);border:none;background:none;border-bottom:3px solid transparent;cursor:pointer;display:flex;align-items:center;gap:7px;margin-bottom:-2px}
+.tab{padding:13px 22px;font-size:17px;font-weight:700;color:var(--g5);border:none;background:none;border-bottom:3px solid transparent;cursor:pointer;display:flex;align-items:center;gap:7px;margin-bottom:-2px}
 .tab:hover{color:var(--b7);background:var(--b0)}
 .tab.active{color:var(--b7);border-bottom-color:var(--b7);font-weight:800}
-.badge{background:var(--b1);color:var(--b7);font-size:11px;font-weight:800;padding:2px 8px;border-radius:10px}
+.badge{background:var(--b1);color:var(--b7);font-size:13px;font-weight:800;padding:2px 8px;border-radius:10px}
 .toolbar{background:#fff;border-bottom:1px solid var(--g2)}
 .tb-in{max-width:1300px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .srch{flex:1;min-width:220px;position:relative}
@@ -45,38 +45,38 @@ input,select,textarea{font-family:inherit}
 .srch input{width:100%;padding:10px 12px 10px 36px;background:var(--g0);border:1px solid var(--g2);border-radius:var(--r);font-size:15px;color:var(--g9);outline:none}
 .srch input:focus{border-color:var(--b5);background:#fff;box-shadow:0 0 0 3px rgba(59,130,212,.1)}
 .chips{display:flex;gap:6px;flex-wrap:wrap}
-.chip{padding:7px 16px;border-radius:20px;border:1px solid var(--g2);background:#fff;color:var(--g7);font-size:14px;font-weight:700}
+.chip{padding:7px 16px;border-radius:20px;border:1px solid var(--g2);background:#fff;color:var(--g7);font-size:16px;font-weight:700}
 .chip:hover{border-color:var(--b5);color:var(--b7);background:var(--b0)}
 .chip.active{background:var(--b7);border-color:var(--b7);color:#fff}
 .chip.am.active{background:var(--am);border-color:var(--am);color:#fff}
 .chip.gn.active{background:var(--gn);border-color:var(--gn);color:#fff}
 .chip.rd.active{background:var(--rd);border-color:var(--rd);color:#fff}
-.srt{padding:9px 12px;border:1px solid var(--g2);border-radius:var(--r);font-size:14px;color:var(--g7);background:#fff;outline:none}
+.srt{padding:9px 12px;border:1px solid var(--g2);border-radius:var(--r);font-size:16px;color:var(--g7);background:#fff;outline:none}
 .main{max-width:1300px;margin:0 auto;padding:20px}
 .view{display:none}.view.active{display:block}
 .tcard{background:#fff;border:1px solid var(--g2);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
 .thead{display:grid;grid-template-columns:100px 1fr 140px 125px 130px 185px;padding:0 16px;background:var(--b0);border-bottom:1px solid var(--b1)}
-.th{padding:11px 8px;font-size:12px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--b7)}
+.th{padding:11px 8px;font-size:14px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--b7)}
 .trow{display:grid;grid-template-columns:100px 1fr 140px 125px 130px 185px;padding:0 16px;border-bottom:1px solid var(--g1);align-items:center;cursor:pointer}
 .trow:last-child{border-bottom:none}
 .trow:hover{background:var(--b0)}
 .td{padding:13px 8px}
-.td-cid{font-size:13px;font-weight:800;color:var(--b7);letter-spacing:.05em}
-.cname{font-size:15px;font-weight:700;color:var(--g9)}
-.cphone{font-size:13px;color:var(--g5);margin-top:2px}
-.ctype{font-size:12px;color:var(--g4);margin-top:1px}
-.td-date{font-size:14px}
+.td-cid{font-size:15px;font-weight:800;color:var(--b7);letter-spacing:.05em}
+.cname{font-size:17px;font-weight:700;color:var(--g9)}
+.cphone{font-size:15px;color:var(--g5);margin-top:2px}
+.ctype{font-size:14px;color:var(--g4);margin-top:1px}
+.td-date{font-size:16px}
 .td-date.s-overdue{color:var(--rd);font-weight:800}
 .td-date.s-ready{color:var(--gn);font-weight:700}
-.pill{display:inline-block;padding:5px 12px;border-radius:20px;font-size:13px;font-weight:800}
+.pill{display:inline-block;padding:5px 12px;border-radius:20px;font-size:15px;font-weight:800}
 .pill-ready{background:var(--gnb);color:var(--gn)}
 .pill-pending{background:var(--amb);color:var(--am)}
 .pill-overdue{background:var(--rdb);color:var(--rd)}
-.td-bal{font-size:14px}
+.td-bal{font-size:16px}
 .bal-due{color:var(--rd);font-weight:800}
 .bal-paid{color:var(--gn);font-weight:700}
 .td-act{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
-.ab{height:32px;padding:0 10px;display:flex;align-items:center;gap:5px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;color:var(--g5);font-size:13px;font-weight:600;white-space:nowrap}
+.ab{height:36px;padding:0 12px;display:flex;align-items:center;gap:5px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;color:var(--g5);font-size:15px;font-weight:600;white-space:nowrap}
 .ab:hover{border-color:var(--b5);background:var(--b0);color:var(--b7)}
 .ab.ok:hover{border-color:#86efac;background:var(--gnb);color:var(--gn)}
 .ab.del:hover{border-color:#fca5a5;background:var(--rdb);color:var(--rd)}
@@ -87,18 +87,18 @@ input,select,textarea{font-family:inherit}
 .sz-card:hover{border-color:var(--b5);box-shadow:var(--sh2)}
 .sz-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .sz-av{width:44px;height:44px;border-radius:var(--r);background:var(--b7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0}
-.sz-nm{font-size:16px;font-weight:800;color:var(--g9)}
-.sz-ph{font-size:13px;color:var(--g5);margin-top:2px}
-.sz-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:800;margin-left:auto}
+.sz-nm{font-size:18px;font-weight:800;color:var(--g9)}
+.sz-ph{font-size:15px;color:var(--g5);margin-top:2px}
+.sz-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:14px;font-weight:800;margin-left:auto}
 .sz-badge.sk{background:#ede9fe;color:#6d28d9}
 .sz-badge.sh{background:#e0f2fe;color:#0369a1}
-.ban-tag{background:var(--b0);border:1px solid var(--b1);border-radius:var(--r);padding:7px 12px;font-size:14px;color:var(--b7);font-weight:700;margin-bottom:10px}
+.ban-tag{background:var(--b0);border:1px solid var(--b1);border-radius:var(--r);padding:7px 12px;font-size:16px;color:var(--b7);font-weight:700;margin-bottom:10px}
 .m-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .m-box{background:var(--g0);border:1px solid var(--g2);border-radius:var(--r);padding:8px;text-align:center}
-.m-val{font-size:18px;font-weight:800;color:var(--b8)}
-.m-lbl{font-size:11px;color:var(--g5);margin-top:2px}
+.m-val{font-size:22px;font-weight:800;color:var(--b8)}
+.m-lbl{font-size:13px;color:var(--g5);margin-top:2px}
 .sz-acts{display:flex;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--g1)}
-.sz-btn{flex:1;padding:9px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;font-size:14px;font-weight:700;color:var(--g7);display:flex;align-items:center;justify-content:center;gap:5px}
+.sz-btn{flex:1;padding:10px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;font-size:16px;font-weight:700;color:var(--g7);display:flex;align-items:center;justify-content:center;gap:5px}
 .sz-btn:hover{border-color:var(--b5);color:var(--b7);background:var(--b0)}
 .sz-btn.del:hover{border-color:#fca5a5;background:var(--rdb);color:var(--rd)}
 .pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
@@ -106,16 +106,16 @@ input,select,textarea{font-family:inherit}
 .pcard:hover{border-color:var(--b5);box-shadow:var(--sh2)}
 .p-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .p-av{width:44px;height:44px;border-radius:var(--r);background:var(--b7);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800;flex-shrink:0}
-.p-nm{font-size:16px;font-weight:800;color:var(--g9)}
-.p-ph{font-size:13px;color:var(--g5);margin-top:2px}
-.p-cid{font-size:12px;font-weight:800;color:var(--b7);letter-spacing:.04em;margin-left:auto;align-self:flex-start}
+.p-nm{font-size:18px;font-weight:800;color:var(--g9)}
+.p-ph{font-size:15px;color:var(--g5);margin-top:2px}
+.p-cid{font-size:14px;font-weight:800;color:var(--b7);letter-spacing:.04em;margin-left:auto;align-self:flex-start}
 .pstats{display:flex;gap:8px;margin-bottom:12px}
 .pst{flex:1;background:var(--g0);border-radius:var(--r);padding:9px;text-align:center;border:1px solid var(--g1)}
-.pst-n{font-size:18px;font-weight:800;color:var(--g9);line-height:1}
-.pst-l{font-size:11px;color:var(--g5);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
-.plast{font-size:13px;color:var(--g4)}
+.pst-n{font-size:22px;font-weight:800;color:var(--g9);line-height:1}
+.pst-l{font-size:13px;color:var(--g5);text-transform:uppercase;letter-spacing:.06em;margin-top:3px}
+.plast{font-size:15px;color:var(--g4)}
 .p-acts{display:flex;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid var(--g1)}
-.p-act{flex:1;padding:9px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;font-size:14px;font-weight:700;color:var(--g7);display:flex;align-items:center;justify-content:center;gap:5px}
+.p-act{flex:1;padding:10px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;font-size:16px;font-weight:700;color:var(--g7);display:flex;align-items:center;justify-content:center;gap:5px}
 .p-act:hover{border-color:var(--b5);color:var(--b7);background:var(--b0)}
 .p-act.wa{color:var(--wa);border-color:var(--wa)}.p-act.wa:hover{background:#f0fdf4}
 .empty{padding:60px 20px;text-align:center}
@@ -136,20 +136,20 @@ input,select,textarea{font-family:inherit}
 .modal{background:#fff;border-radius:var(--r);width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.18);display:flex;flex-direction:column}
 .modal.wide{max-width:780px}
 .mhd{background:var(--b8);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-radius:var(--r) var(--r) 0 0}
-.mhd h2{font-size:19px;font-weight:800;color:#fff}
-.mhd p{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px;text-transform:uppercase;letter-spacing:.07em}
-.mcid-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:6px 14px;font-size:15px;font-weight:800;color:#fff;letter-spacing:.05em}
+.mhd h2{font-size:22px;font-weight:800;color:#fff}
+.mhd p{font-size:14px;color:rgba(255,255,255,.5);margin-top:2px;text-transform:uppercase;letter-spacing:.07em}
+.mcid-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:6px 14px;font-size:17px;font-weight:800;color:#fff;letter-spacing:.05em}
 .mcls{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.6);font-size:18px;width:34px;height:34px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-left:8px}
 .mcls:hover{background:rgba(255,255,255,.25);color:#fff}
 .mbody{padding:22px 24px;flex:1;overflow-y:auto}
 .mfoot{padding:16px 24px;border-top:1px solid var(--g1);background:var(--g0);display:flex;gap:10px;justify-content:flex-end;align-items:center;border-radius:0 0 var(--r) var(--r);flex-shrink:0}
-.save-sz-chk{display:flex;align-items:center;gap:6px;margin-right:auto;font-size:13px;color:var(--b7);cursor:pointer;user-select:none;white-space:nowrap}
-.save-sz-chk input[type=checkbox]{width:15px;height:15px;accent-color:var(--b7);cursor:pointer;flex-shrink:0}
+.save-sz-chk{display:flex;align-items:center;gap:10px;margin-right:auto;font-size:17px;font-weight:700;color:var(--b7);cursor:pointer;user-select:none;white-space:nowrap}
+.save-sz-chk input[type=checkbox]{width:22px;height:22px;accent-color:var(--b7);cursor:pointer;flex-shrink:0}
 .fsec{margin-bottom:22px}
-.fsec-t{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--b7);padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--b1)}
+.fsec-t{font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--b7);padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--b1)}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
-.fld label{display:block;font-size:13px;font-weight:700;color:var(--g7);margin-bottom:6px}
+.fld label{display:block;font-size:15px;font-weight:700;color:var(--g7);margin-bottom:6px}
 .fld label .req{color:var(--b5)}
 .fld input,.fld select,.fld textarea{width:100%;padding:10px 13px;border:1px solid var(--g2);border-radius:var(--r);font-size:15px;color:var(--g9);background:#fff;outline:none}
 .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--b5);box-shadow:0 0 0 3px rgba(59,130,212,.1)}
@@ -159,12 +159,12 @@ input,select,textarea{font-family:inherit}
 .type-btn{flex:1;padding:13px;border-radius:var(--r);border:2px solid var(--g2);background:#fff;font-size:15px;font-weight:700;color:var(--g5);cursor:pointer;text-align:center}
 .type-btn:hover{border-color:var(--b5);color:var(--b7)}
 .type-btn.active{border-color:var(--b7);background:var(--b0);color:var(--b7)}
-.btn-cancel{padding:10px 18px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;color:var(--g5);font-size:15px;font-weight:700}
+.btn-cancel{padding:12px 20px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;color:var(--g5);font-size:17px;font-weight:700}
 .btn-cancel:hover{border-color:var(--g4);color:var(--g7)}
-.btn-save{padding:10px 26px;border-radius:var(--r);border:none;background:var(--b7);color:#fff;font-size:15px;font-weight:800;box-shadow:var(--sh)}
+.btn-save{padding:12px 28px;border-radius:var(--r);border:none;background:var(--b7);color:#fff;font-size:17px;font-weight:800;box-shadow:var(--sh)}
 .btn-save:hover{background:var(--b5)}
 .btn-pr{padding:10px 18px;border-radius:var(--r);border:1px solid #a78bfa;background:#f5f3ff;color:#7c3aed;font-size:15px;font-weight:700}
-.btn-sz{padding:10px 18px;border-radius:var(--r);border:1px solid var(--gn);background:var(--gnb);color:var(--gn);font-size:15px;font-weight:700}
+.btn-sz{padding:11px 20px;border-radius:var(--r);border:1px solid var(--gn);background:var(--gnb);color:var(--gn);font-size:17px;font-weight:700}
 .btn-sz:hover{background:#bbf7d0}
 .toast{position:fixed;bottom:20px;right:20px;z-index:9999;background:var(--g9);color:#fff;padding:12px 18px;border-radius:var(--r);font-size:15px;font-weight:600;display:flex;align-items:center;gap:9px;box-shadow:var(--sh2);transform:translateY(70px);opacity:0;transition:transform .18s,opacity .18s;pointer-events:none;max-width:340px}
 .toast.show{transform:translateY(0);opacity:1}
@@ -172,9 +172,9 @@ input,select,textarea{font-family:inherit}
 .td2.ok{background:#4ade80}.td2.err{background:#f87171}.td2.info{background:#60a5e8}
 .po-row{display:flex;align-items:center;gap:10px;padding:11px 14px;background:var(--g0);border-radius:var(--r);border:1px solid var(--g1);cursor:pointer;margin-bottom:6px}
 .po-row:hover{background:var(--b0);border-color:var(--b1)}
-.po-cid{font-size:13px;font-weight:800;color:var(--b7);min-width:80px}
-.po-item{flex:1;font-size:14px;color:var(--g7)}
-.po-date{font-size:13px;color:var(--g4)}
+.po-cid{font-size:15px;font-weight:800;color:var(--b7);min-width:80px}
+.po-item{flex:1;font-size:16px;color:var(--g7)}
+.po-date{font-size:15px;color:var(--g4)}
 @media(max-width:1024px){
   .thead,.trow{grid-template-columns:90px 1fr 130px 115px 175px}
   .th:nth-child(3),.td:nth-child(3){display:none}
@@ -201,7 +201,7 @@ input,select,textarea{font-family:inherit}
     padding:12px 14px;gap:4px;
     border-bottom:1px solid var(--g1)
   }
-  .td-cid{font-size:13px;font-weight:800;color:var(--b7)}
+  .td-cid{font-size:15px;font-weight:800;color:var(--b7)}
   .td-name{font-size:15px;font-weight:700}
   .td-date,.td-status,.td-bal{font-size:13px;color:var(--g6)}
   .td-act{margin-top:6px;flex-wrap:wrap;gap:6px}
@@ -246,11 +246,11 @@ input,select,textarea{font-family:inherit}
 .ac-wrap{position:relative}
 .ac-list{position:absolute;top:100%;left:0;right:0;background:#fff;border:1.5px solid var(--b3);border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:999;max-height:200px;overflow-y:auto;display:none}
 .ac-list.open{display:block}
-.ac-item{padding:10px 14px;cursor:pointer;font-size:14px;border-bottom:1px solid var(--g1)}
+.ac-item{padding:12px 16px;cursor:pointer;font-size:16px;border-bottom:1px solid var(--g1)}
 .ac-item:last-child{border-bottom:none}
 .ac-item:hover,.ac-item.sel{background:var(--b0)}
 .ac-item b{color:var(--b7)}
-.ac-item small{color:var(--g4);font-size:12px;margin-left:6px}
+.ac-item small{color:var(--g4);font-size:14px;margin-left:6px}
 </style>
 </head>
 <body>
@@ -301,8 +301,6 @@ input,select,textarea{font-family:inherit}
     <div class="srch"><span class="srch-ic">&#128269;</span><input id="sz-search" type="text" placeholder="Search sizes by name or phone..." oninput="renderSizes()" autocomplete="off"></div>
     <div class="chips">
       <button class="chip active" id="szf-all" onclick="setSzF('all')">All</button>
-      <button class="chip" id="szf-sk" onclick="setSzF('sk')" style="border-color:#a78bfa;color:#6d28d9">Shalwar Kameez</button>
-      <button class="chip" id="szf-sh" onclick="setSzF('sh')" style="border-color:#7dd3fc;color:#0369a1">Dress Shirt</button>
     </div>
     <button class="btn-sz" onclick="openSzModal(null)">+ Save New Size</button>
   </div>
@@ -346,13 +344,6 @@ input,select,textarea{font-family:inherit}
         <div class="fld" style="margin-top:14px"><label>Address / Area</label><input type="text" id="f-address" placeholder="e.g. Gulshan-e-Iqbal, Karachi"></div>
       </div>
       <div class="fsec">
-        <div class="fsec-t">Garment Type</div>
-        <div class="type-row">
-          <button class="type-btn active" id="ot-sk" onclick="setOType('sk')">Shalwar Kameez</button>
-          <button class="type-btn" id="ot-sh" onclick="setOType('sh')">Dress Shirt</button>
-        </div>
-      </div>
-      <div class="fsec">
         <div class="fsec-t">Ban / Collar Style</div>
         <div class="fld">
           <select id="f-ban">
@@ -364,33 +355,27 @@ input,select,textarea{font-family:inherit}
         </div>
       </div>
       <div class="fsec" id="o-sk-sec">
-        <div class="fsec-t">Shalwar Kameez Measurements (inches)</div>
+        <div class="fsec-t">قمیض کی پیمائش</div>
         <div class="fg4">
-          <div class="fld"><label>Length (&#1602;&#1583;)</label><input type="number" step="0.5" id="f-sk-length" placeholder="42"></div>
-          <div class="fld"><label>Chest (&#1670;&#1726;&#1575;&#1578;&#1740;)</label><input type="number" step="0.5" id="f-sk-chest" placeholder="40"></div>
-          <div class="fld"><label>Waist (&#1705;&#1605;&#1585;)</label><input type="number" step="0.5" id="f-sk-waist" placeholder="36"></div>
-          <div class="fld"><label>Hips (&#1705;&#1608;&#1604;&#1726;&#DB2;)</label><input type="number" step="0.5" id="f-sk-hips" placeholder="40"></div>
-          <div class="fld"><label>Shoulder (&#1705;&#1606;&#1583;&#1726;&#1575;)</label><input type="number" step="0.5" id="f-sk-shoulder" placeholder="17"></div>
-          <div class="fld"><label>Sleeve (&#1570;&#1587;&#1578;&#1740;&#1606;)</label><input type="number" step="0.5" id="f-sk-sleeve" placeholder="24"></div>
-          <div class="fld"><label>Kameez Sleeve</label><input type="number" step="0.5" id="f-sk-ksleeve" placeholder="22"></div>
-          <div class="fld"><label>Pajama Length</label><input type="number" step="0.5" id="f-sk-inseam" placeholder="38"></div>
-          <div class="fld"><label>Pajama Waist</label><input type="number" step="0.5" id="f-sk-pwaist" placeholder="34"></div>
-          <div class="fld"><label>Shalwar Width</label><input type="number" step="0.5" id="f-sk-swidth" placeholder="14"></div>
-          <div class="fld"><label>Neck (&#1711;&#1585;&#1740;&#1576;&#1575;&#1606;)</label><input type="number" step="0.5" id="f-sk-neck" placeholder="15"></div>
-          <div class="fld"><label>Notes</label><input type="text" id="f-sk-notes" placeholder="e.g. loose fit"></div>
+          <div class="fld"><label>قمیض کی لمبائی</label><input type="number" step="0.5" id="f-sk-qlength" placeholder="42"></div>
+          <div class="fld"><label>بازو کی لمبائی</label><input type="number" step="0.5" id="f-sk-bazoo" placeholder="24"></div>
+          <div class="fld"><label>تیرہ</label><input type="number" step="0.5" id="f-sk-tehra" placeholder="17"></div>
+          <div class="fld"><label>دامن / گھیرا</label><input type="number" step="0.5" id="f-sk-daaman" placeholder="44"></div>
+          <div class="fld"><label>چھاتی</label><input type="number" step="0.5" id="f-sk-chest" placeholder="40"></div>
+          <div class="fld"><label>کمر</label><input type="number" step="0.5" id="f-sk-kamar" placeholder="36"></div>
+          <div class="fld"><label>Hip</label><input type="number" step="0.5" id="f-sk-hip" placeholder="40"></div>
+          <div class="fld"><label>کالر / بین کی لمبائی</label><input type="number" step="0.5" id="f-sk-collar" placeholder="15"></div>
+          <div class="fld"><label>کندھا</label><input type="number" step="0.5" id="f-sk-kandha" placeholder="18"></div>
+          <div class="fld"><label>کف</label><input type="number" step="0.5" id="f-sk-cuff" placeholder="9"></div>
+          <div class="fld"><label>کہنی</label><input type="number" step="0.5" id="f-sk-elbow" placeholder="12"></div>
+          <div class="fld"><label>پاکٹ</label><input type="number" step="0.5" id="f-sk-pocket" placeholder="6"></div>
         </div>
-      </div>
-      <div class="fsec" id="o-sh-sec" style="display:none">
-        <div class="fsec-t">Dress Shirt Measurements (inches)</div>
+        <div class="fsec-t" style="margin-top:16px">شلوار کی پیمائش</div>
         <div class="fg4">
-          <div class="fld"><label>Shirt Length</label><input type="number" step="0.5" id="f-sh-length" placeholder="30"></div>
-          <div class="fld"><label>Chest (&#1670;&#1726;&#1575;&#1578;&#1740;)</label><input type="number" step="0.5" id="f-sh-chest" placeholder="40"></div>
-          <div class="fld"><label>Shoulder (&#1705;&#1606;&#1583;&#1726;&#1575;)</label><input type="number" step="0.5" id="f-sh-shoulder" placeholder="17"></div>
-          <div class="fld"><label>Sleeve (&#1570;&#1587;&#1578;&#1740;&#1606;)</label><input type="number" step="0.5" id="f-sh-sleeve" placeholder="25"></div>
-          <div class="fld"><label>Collar Size</label><input type="number" step="0.5" id="f-sh-collar" placeholder="15"></div>
-          <div class="fld"><label>Waist (&#1705;&#1605;&#1585;)</label><input type="number" step="0.5" id="f-sh-waist" placeholder="36"></div>
-          <div class="fld"><label>Hip / Seat</label><input type="number" step="0.5" id="f-sh-hip" placeholder="40"></div>
-          <div class="fld"><label>Notes</label><input type="text" id="f-sh-notes" placeholder="e.g. slim fit"></div>
+          <div class="fld"><label>شلوار کی لمبائی</label><input type="number" step="0.5" id="f-sk-slength" placeholder="40"></div>
+          <div class="fld"><label>شلوار کا گھیرا</label><input type="number" step="0.5" id="f-sk-sghera" placeholder="14"></div>
+          <div class="fld"><label>پائنچہ</label><input type="number" step="0.5" id="f-sk-paincha" placeholder="8"></div>
+          <div class="fld"><label>آسن</label><input type="number" step="0.5" id="f-sk-aasan" placeholder="22"></div>
         </div>
       </div>
       <div class="fsec" style="margin-bottom:0">
@@ -438,13 +423,6 @@ input,select,textarea{font-family:inherit}
         </div>
       </div>
       <div class="fsec">
-        <div class="fsec-t">Garment Type</div>
-        <div class="type-row">
-          <button class="type-btn active" id="st-sk" onclick="setSzType('sk')">Shalwar Kameez</button>
-          <button class="type-btn" id="st-sh" onclick="setSzType('sh')">Dress Shirt</button>
-        </div>
-      </div>
-      <div class="fsec">
         <div class="fsec-t">Ban / Collar Style</div>
         <div class="fld"><select id="sz-ban">
             <option value="">-- Select --</option>
@@ -454,33 +432,27 @@ input,select,textarea{font-family:inherit}
           </select></div>
       </div>
       <div class="fsec" id="sz-sk-sec">
-        <div class="fsec-t">Shalwar Kameez (inches)</div>
+        <div class="fsec-t">قمیض کی پیمائش</div>
         <div class="fg4">
-          <div class="fld"><label>Length (&#1602;&#1583;)</label><input type="number" step="0.5" id="sz-sk-length" placeholder="42"></div>
-          <div class="fld"><label>Chest (&#1670;&#1726;&#1575;&#1578;&#1740;)</label><input type="number" step="0.5" id="sz-sk-chest" placeholder="40"></div>
-          <div class="fld"><label>Waist (&#1705;&#1605;&#1585;)</label><input type="number" step="0.5" id="sz-sk-waist" placeholder="36"></div>
-          <div class="fld"><label>Hips (&#1705;&#1608;&#1604;&#1726;&#DB2;)</label><input type="number" step="0.5" id="sz-sk-hips" placeholder="40"></div>
-          <div class="fld"><label>Shoulder (&#1705;&#1606;&#1583;&#1726;&#1575;)</label><input type="number" step="0.5" id="sz-sk-shoulder" placeholder="17"></div>
-          <div class="fld"><label>Sleeve (&#1570;&#1587;&#1578;&#1740;&#1606;)</label><input type="number" step="0.5" id="sz-sk-sleeve" placeholder="24"></div>
-          <div class="fld"><label>Kameez Sleeve</label><input type="number" step="0.5" id="sz-sk-ksleeve" placeholder="22"></div>
-          <div class="fld"><label>Pajama Length</label><input type="number" step="0.5" id="sz-sk-inseam" placeholder="38"></div>
-          <div class="fld"><label>Pajama Waist</label><input type="number" step="0.5" id="sz-sk-pwaist" placeholder="34"></div>
-          <div class="fld"><label>Shalwar Width</label><input type="number" step="0.5" id="sz-sk-swidth" placeholder="14"></div>
-          <div class="fld"><label>Neck (&#1711;&#1585;&#1740;&#1576;&#1575;&#1606;)</label><input type="number" step="0.5" id="sz-sk-neck" placeholder="15"></div>
-          <div class="fld"><label>Notes</label><input type="text" id="sz-sk-notes" placeholder="e.g. loose fit"></div>
+          <div class="fld"><label>قمیض کی لمبائی</label><input type="number" step="0.5" id="sz-sk-qlength" placeholder="42"></div>
+          <div class="fld"><label>بازو کی لمبائی</label><input type="number" step="0.5" id="sz-sk-bazoo" placeholder="24"></div>
+          <div class="fld"><label>تیرہ</label><input type="number" step="0.5" id="sz-sk-tehra" placeholder="17"></div>
+          <div class="fld"><label>دامن / گھیرا</label><input type="number" step="0.5" id="sz-sk-daaman" placeholder="44"></div>
+          <div class="fld"><label>چھاتی</label><input type="number" step="0.5" id="sz-sk-chest" placeholder="40"></div>
+          <div class="fld"><label>کمر</label><input type="number" step="0.5" id="sz-sk-kamar" placeholder="36"></div>
+          <div class="fld"><label>Hip</label><input type="number" step="0.5" id="sz-sk-hip" placeholder="40"></div>
+          <div class="fld"><label>کالر / بین کی لمبائی</label><input type="number" step="0.5" id="sz-sk-collar" placeholder="15"></div>
+          <div class="fld"><label>کندھا</label><input type="number" step="0.5" id="sz-sk-kandha" placeholder="18"></div>
+          <div class="fld"><label>کف</label><input type="number" step="0.5" id="sz-sk-cuff" placeholder="9"></div>
+          <div class="fld"><label>کہنی</label><input type="number" step="0.5" id="sz-sk-elbow" placeholder="12"></div>
+          <div class="fld"><label>پاکٹ</label><input type="number" step="0.5" id="sz-sk-pocket" placeholder="6"></div>
         </div>
-      </div>
-      <div class="fsec" id="sz-sh-sec" style="display:none;margin-bottom:0">
-        <div class="fsec-t">Dress Shirt (inches)</div>
+        <div class="fsec-t" style="margin-top:16px">شلوار کی پیمائش</div>
         <div class="fg4">
-          <div class="fld"><label>Shirt Length</label><input type="number" step="0.5" id="sz-sh-length" placeholder="30"></div>
-          <div class="fld"><label>Chest (&#1670;&#1726;&#1575;&#1578;&#1740;)</label><input type="number" step="0.5" id="sz-sh-chest" placeholder="40"></div>
-          <div class="fld"><label>Shoulder</label><input type="number" step="0.5" id="sz-sh-shoulder" placeholder="17"></div>
-          <div class="fld"><label>Sleeve</label><input type="number" step="0.5" id="sz-sh-sleeve" placeholder="25"></div>
-          <div class="fld"><label>Collar Size</label><input type="number" step="0.5" id="sz-sh-collar" placeholder="15"></div>
-          <div class="fld"><label>Waist</label><input type="number" step="0.5" id="sz-sh-waist" placeholder="36"></div>
-          <div class="fld"><label>Hip / Seat</label><input type="number" step="0.5" id="sz-sh-hip" placeholder="40"></div>
-          <div class="fld"><label>Notes</label><input type="text" id="sz-sh-notes" placeholder="e.g. slim fit"></div>
+          <div class="fld"><label>شلوار کی لمبائی</label><input type="number" step="0.5" id="sz-sk-slength" placeholder="40"></div>
+          <div class="fld"><label>شلوار کا گھیرا</label><input type="number" step="0.5" id="sz-sk-sghera" placeholder="14"></div>
+          <div class="fld"><label>پائنچہ</label><input type="number" step="0.5" id="sz-sk-paincha" placeholder="8"></div>
+          <div class="fld"><label>آسن</label><input type="number" step="0.5" id="sz-sk-aasan" placeholder="22"></div>
         </div>
       </div>
     </div>
@@ -524,8 +496,8 @@ var SK='AMT_ORDERS', CK='AMT_COUNTER', SZK='AMT_SIZES', PS=35;
 var orders=[], sizes=[], counter=1, editId=null, szEditId=null;
 var filter='all', q='', page=1, curTab='orders', tT=null;
 var szF='all', curOType='sk', curSzType='sk';
-var O_SK=['length','chest','waist','hips','shoulder','sleeve','ksleeve','inseam','pwaist','swidth','neck','notes'];
-var O_SH=['length','chest','shoulder','sleeve','collar','waist','hip','notes'];
+var O_SK=['qlength','bazoo','tehra','daaman','chest','kamar','hip','collar','kandha','cuff','elbow','pocket','slength','sghera','paincha','aasan'];
+var O_SH=[];
 function uuid4(){
   if(typeof crypto!=='undefined' && crypto.randomUUID) return crypto.randomUUID();
   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){
@@ -587,22 +559,6 @@ function switchTab(t){
   });
   if(t==='sizes') renderSizes();
   if(t==='customers') renderProfiles();
-}
-
-function setOType(t){
-  curOType=t;
-  document.getElementById('ot-sk').classList.toggle('active', t==='sk');
-  document.getElementById('ot-sh').classList.toggle('active', t==='sh');
-  document.getElementById('o-sk-sec').style.display = t==='sk' ? 'block' : 'none';
-  document.getElementById('o-sh-sec').style.display = t==='sh' ? 'block' : 'none';
-}
-
-function setSzType(t){
-  curSzType=t;
-  document.getElementById('st-sk').classList.toggle('active', t==='sk');
-  document.getElementById('st-sh').classList.toggle('active', t==='sh');
-  document.getElementById('sz-sk-sec').style.display = t==='sk' ? 'block' : 'none';
-  document.getElementById('sz-sh-sec').style.display = t==='sh' ? 'block' : 'none';
 }
 
 
@@ -728,24 +684,23 @@ function renderSizes(){
   var grid = document.createElement('div');
   grid.className = 'sz-grid';
   list.forEach(function(s){
-    var isSK = s.type==='sk';
-    var rows = isSK
-      ? [['Length',s.sk_length],['Chest',s.sk_chest],['Waist',s.sk_waist],['Hips',s.sk_hips],['Shoulder',s.sk_shoulder],['Sleeve',s.sk_sleeve],['K.Sleeve',s.sk_ksleeve],['Paj.L',s.sk_inseam],['Neck',s.sk_neck]]
-      : [['Length',s.sh_length],['Chest',s.sh_chest],['Shoulder',s.sh_shoulder],['Sleeve',s.sh_sleeve],['Collar',s.sh_collar],['Waist',s.sh_waist],['Hip',s.sh_hip]];
-    rows = rows.filter(function(r){ return r[1]; }).slice(0,9);
-    var notes = isSK ? s.sk_notes : s.sh_notes;
+    var rows = [
+      ['قمیض لمبائی',s.sk_qlength],['بازو',s.sk_bazoo],['تیرہ',s.sk_tehra],['دامن',s.sk_daaman],
+      ['چھاتی',s.sk_chest],['کمر',s.sk_kamar],['Hip',s.sk_hip],['کالر',s.sk_collar],
+      ['کندھا',s.sk_kandha],['کف',s.sk_cuff],['کہنی',s.sk_elbow],['پاکٹ',s.sk_pocket],
+      ['شلوار لمبائی',s.sk_slength],['شلوار گھیرا',s.sk_sghera],['پائنچہ',s.sk_paincha],['آسن',s.sk_aasan]
+    ];
+    rows = rows.filter(function(r){ return r[1]; });
     var card = document.createElement('div');
     card.className = 'sz-card';
     card.innerHTML =
       '<div class="sz-top"><div class="sz-av">'+ini(s.name)+'</div>'
       +'<div><div class="sz-nm">'+esc(s.name)+'</div><div class="sz-ph">'+esc(s.phone||'--')+'</div></div>'
-      +'<span class="sz-badge '+(isSK?'sk':'sh')+'">'+(isSK?'SK':'Shirt')+'</span></div>'
+      +'<span class="sz-badge sk">SK</span></div>'
       +(s.ban ? '<div class="ban-tag">Ban/Collar: '+esc(s.ban)+'</div>' : '')
       +'<div class="m-grid">'+rows.map(function(r){ return '<div class="m-box"><div class="m-val">'+r[1]+'"</div><div class="m-lbl">'+r[0]+'</div></div>'; }).join('')+'</div>'
-      +(notes ? '<div style="margin-top:10px;font-size:13px;color:var(--g5);font-style:italic">'+esc(notes)+'</div>' : '')
       +'<div class="sz-acts">'
       +'<button class="sz-btn" data-id="'+s.id+'" onclick="openSzModal(this.dataset.id)">Edit</button>'
-      +''
       +'<button class="sz-btn del" data-id="'+s.id+'" data-nm="'+esc(s.name)+'" onclick="askDel(this.dataset.id,\'size\',this.dataset.nm)">Delete</button>'
       +'</div>';
     grid.appendChild(card);
@@ -764,16 +719,11 @@ function openSzModal(id){
   document.getElementById('sz-phone').value = '';
   document.getElementById('sz-ban').value = '';
   O_SK.forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=''; });
-  O_SH.forEach(function(f){ var e=document.getElementById('sz-sh-'+f); if(e) e.value=''; });
   if(s){
-    setSzType(s.type||'sk');
     document.getElementById('sz-name').value = s.name||'';
     document.getElementById('sz-phone').value = s.phone||'';
     document.getElementById('sz-ban').value = s.ban||'';
     O_SK.forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
-    O_SH.forEach(function(f){ var e=document.getElementById('sz-sh-'+f); if(e) e.value=s['sh_'+f]||''; });
-  } else {
-    setSzType('sk');
   }
   document.getElementById('sz-ov').classList.add('open');
   setTimeout(function(){ document.getElementById('sz-name').focus(); }, 40);
@@ -795,7 +745,6 @@ function saveSz(){
     updated: new Date().toISOString()
   };
   O_SK.forEach(function(f){ s['sk_'+f] = gv('sz-sk-'+f); });
-  O_SH.forEach(function(f){ s['sh_'+f] = gv('sz-sh-'+f); });
   if(szEditId){
     sizes = sizes.map(function(x){ return x.id===szEditId ? s : x; });
   } else {
@@ -871,14 +820,14 @@ function showProfile(key){
   if(custSz.length){
     szHtml = '<div style="font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--b7);padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid var(--b1)">Saved Sizes</div>';
     szHtml += custSz.map(function(s){
-      var isSK = s.type==='sk';
-      var rows = isSK
-        ? [['L',s.sk_length],['Ch',s.sk_chest],['W',s.sk_waist],['Sh',s.sk_shoulder],['Sl',s.sk_sleeve],['Nk',s.sk_neck]]
-        : [['L',s.sh_length],['Ch',s.sh_chest],['Sh',s.sh_shoulder],['Sl',s.sh_sleeve],['Cl',s.sh_collar],['W',s.sh_waist]];
+      var rows = [
+        ['قمیض',s.sk_qlength],['بازو',s.sk_bazoo],['تیرہ',s.sk_tehra],
+        ['چھاتی',s.sk_chest],['کمر',s.sk_kamar],['Hip',s.sk_hip]
+      ];
       rows = rows.filter(function(r){ return r[1]; });
       return '<div style="background:var(--b0);border:1px solid var(--b1);border-radius:8px;padding:12px;margin-bottom:10px;cursor:pointer" data-id="'+s.id+'" onclick="closePModal();openSzModal(this.dataset.id)">'
         +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">'
-        +'<span style="font-size:14px;font-weight:800;color:var(--b7)">'+(isSK?'Shalwar Kameez':'Dress Shirt')+(s.ban?' - '+esc(s.ban):'')+'</span>'
+        +'<span style="font-size:14px;font-weight:800;color:var(--b7)">Shalwar Kameez'+(s.ban?' - '+esc(s.ban):'')+'</span>'
         +'<span style="font-size:12px;color:var(--g4)">'+fdSafe(s.updated)+'</span>'
         +'</div>'
         +'<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:5px">'
@@ -927,10 +876,8 @@ function openNew(){
   document.getElementById('m-cid').textContent='CID-'+String(counter).padStart(4,'0');
   ['f-name','f-phone','f-address','f-ban','f-amount','f-advance','f-notes'].forEach(function(id){ var e=document.getElementById(id); if(e) e.value=''; });
   O_SK.forEach(function(f){ var e=document.getElementById('f-sk-'+f); if(e) e.value=''; });
-  O_SH.forEach(function(f){ var e=document.getElementById('f-sh-'+f); if(e) e.value=''; });
   document.getElementById('f-status').value='pending';
   document.getElementById('bal-hint').textContent='';
-  setOType('sk');
   var d=new Date(); d.setDate(d.getDate()+7);
   document.getElementById('f-date').value = d.toISOString().split('T')[0];
   document.getElementById('ov').classList.add('open');
@@ -945,9 +892,7 @@ function openEdit(id){
   document.getElementById('m-cid').textContent=o.cid||'';
   ['name','phone','address','ban','amount','advance','notes','date'].forEach(function(f){ var e=document.getElementById('f-'+f); if(e) e.value=o[f]||''; });
   document.getElementById('f-status').value=o.status||'pending';
-  setOType(o.type||'sk');
   O_SK.forEach(function(f){ var e=document.getElementById('f-sk-'+f); if(e) e.value=o['sk_'+f]||''; });
-  O_SH.forEach(function(f){ var e=document.getElementById('f-sh-'+f); if(e) e.value=o['sh_'+f]||''; });
   updHint();
   document.getElementById('ov').classList.add('open');
 }
@@ -986,14 +931,12 @@ function saveOrder(){
     updated: new Date().toISOString()
   };
   O_SK.forEach(function(f){ o['sk_'+f] = gv('f-sk-'+f); });
-  O_SH.forEach(function(f){ o['sh_'+f] = gv('f-sh-'+f); });
   if(editId){ orders=orders.map(function(x){ return x.id===editId?o:x; }); }
   else { orders.unshift(o); }
 
   /* --- Save measurements to Sizes tab if checkbox ticked --- */
   var saveSzChk = document.getElementById('f-save-sz');
   if(saveSzChk && saveSzChk.checked){
-    /* Find existing size record by phone (preferred) or name */
     var existSz = sizes.find(function(s){
       if(o.phone && o.phone.length > 3)
         return (s.phone||'').replace(/\D/g,'') === o.phone.replace(/\D/g,'');
@@ -1003,13 +946,11 @@ function saveOrder(){
       id:    existSz ? existSz.id : uuid4(),
       name:  o.name,
       phone: o.phone,
-      type:  o.type,
       ban:   o.ban,
       updated: new Date().toISOString(),
       created: existSz ? existSz.created : new Date().toISOString()
     };
     O_SK.forEach(function(f){ sz['sk_'+f] = o['sk_'+f]; });
-    O_SH.forEach(function(f){ sz['sh_'+f] = o['sh_'+f]; });
     if(existSz){
       sizes = sizes.map(function(x){ return x.id===existSz.id ? sz : x; });
     } else {
@@ -1106,9 +1047,7 @@ function acPickOrder(name, phone){
   });
   if(sz.length){
     var s = sz[0];
-    setOType(s.type||'sk');
-    ['length','chest','waist','hips','shoulder','sleeve','ksleeve','inseam','pwaist','swidth','neck','notes'].forEach(function(f){ var e=document.getElementById('f-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
-    ['length','chest','shoulder','sleeve','collar','waist','hip','notes'].forEach(function(f){ var e=document.getElementById('f-sh-'+f); if(e) e.value=s['sh_'+f]||''; });
+    O_SK.forEach(function(f){ var e=document.getElementById('f-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
     if(s.ban){ var b=document.getElementById('f-ban'); if(b) b.value=s.ban; }
     toast('Measurements loaded!');
   }
@@ -1141,9 +1080,7 @@ function acPickSize(name, phone){
   });
   if(sz.length){
     var s = sz[0];
-    setSzType(s.type||'sk');
-    ['length','chest','waist','hips','shoulder','sleeve','ksleeve','inseam','pwaist','swidth','neck','notes'].forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
-    ['length','chest','shoulder','sleeve','collar','waist','hip','notes'].forEach(function(f){ var e=document.getElementById('sz-sh-'+f); if(e) e.value=s['sh_'+f]||''; });
+    O_SK.forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
     if(s.ban){ var b=document.getElementById('sz-ban'); if(b) b.value=s.ban; }
   }
 }
