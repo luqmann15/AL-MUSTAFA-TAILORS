@@ -136,8 +136,8 @@ input,select,textarea{font-family:inherit}
 .modal{background:#fff;border-radius:var(--r);width:100%;max-width:680px;max-height:92vh;overflow-y:auto;box-shadow:0 4px 20px rgba(0,0,0,.18);display:flex;flex-direction:column}
 .modal.wide{max-width:780px}
 .mhd{background:var(--b8);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-radius:var(--r) var(--r) 0 0}
-.mhd h2{font-size:22px;font-weight:800;color:#fff}
-.mhd p{font-size:14px;color:rgba(255,255,255,.5);margin-top:2px;text-transform:uppercase;letter-spacing:.07em}
+.mhd h2{font-size:26px;font-weight:800;color:#fff}
+.mhd p{font-size:15px;color:rgba(255,255,255,.5);margin-top:2px;text-transform:uppercase;letter-spacing:.07em}
 .mcid-tag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:6px 14px;font-size:17px;font-weight:800;color:#fff;letter-spacing:.05em}
 .mcls{background:rgba(255,255,255,.1);border:none;color:rgba(255,255,255,.6);font-size:18px;width:34px;height:34px;border-radius:var(--r);display:flex;align-items:center;justify-content:center;margin-left:8px}
 .mcls:hover{background:rgba(255,255,255,.25);color:#fff}
@@ -145,15 +145,29 @@ input,select,textarea{font-family:inherit}
 .mfoot{padding:16px 24px;border-top:1px solid var(--g1);background:var(--g0);display:flex;gap:10px;justify-content:flex-end;align-items:center;border-radius:0 0 var(--r) var(--r);flex-shrink:0}
 .save-sz-chk{display:flex;align-items:center;gap:10px;margin-right:auto;font-size:17px;font-weight:700;color:var(--b7);cursor:pointer;user-select:none;white-space:nowrap}
 .save-sz-chk input[type=checkbox]{width:22px;height:22px;accent-color:var(--b7);cursor:pointer;flex-shrink:0}
+.bulk-bar{background:var(--b0);border-top:1px solid var(--b1);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bulk-sel-all{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--g7);cursor:pointer}
+.bulk-sel-all input[type=checkbox]{width:20px;height:20px;accent-color:var(--b7);cursor:pointer}
+.bulk-count{font-size:15px;font-weight:700;color:var(--b7);margin-right:auto}
+.bulk-del-btn{padding:8px 18px;border-radius:var(--r);border:none;background:var(--rd);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.bulk-del-btn:hover{opacity:.88}
+.bulk-cancel-btn{padding:8px 16px;border-radius:var(--r);border:1px solid var(--g2);background:#fff;color:var(--g5);font-size:15px;font-weight:700;cursor:pointer}
+.trow-chk{display:flex;align-items:center;justify-content:center;padding:0 8px}
+.trow-chk input[type=checkbox]{width:18px;height:18px;accent-color:var(--b7);cursor:pointer}
+.trow.selected{background:var(--b0) !important}
+.sz-card.selected{border-color:var(--b7);background:var(--b0)}
+.sz-card-chk{position:absolute;top:12px;right:12px;width:22px;height:22px;accent-color:var(--b7);cursor:pointer;display:none}
+.sz-card{position:relative}
+.bulk-mode .sz-card-chk{display:block}
 .fsec{margin-bottom:22px}
-.fsec-t{font-size:15px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--b7);padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--b1)}
+.fsec-t{font-size:18px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--b7);padding-bottom:9px;margin-bottom:14px;border-bottom:2px solid var(--b1)}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .fg4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
-.fld label{display:block;font-size:15px;font-weight:700;color:var(--g7);margin-bottom:6px}
+.fld label{display:block;font-size:17px;font-weight:700;color:var(--g7);margin-bottom:6px}
 .fld label .req{color:var(--b5)}
-.fld input,.fld select,.fld textarea{width:100%;padding:10px 13px;border:1px solid var(--g2);border-radius:var(--r);font-size:15px;color:var(--g9);background:#fff;outline:none}
+.fld input,.fld select,.fld textarea{width:100%;padding:12px 14px;border:1px solid var(--g2);border-radius:var(--r);font-size:17px;color:var(--g9);background:#fff;outline:none}
 .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--b5);box-shadow:0 0 0 3px rgba(59,130,212,.1)}
-.fld textarea{resize:vertical;min-height:64px;font-size:14px}
+.fld textarea{resize:vertical;min-height:64px;font-size:17px}
 .fhint{font-size:12px;color:var(--g4);margin-top:4px;font-weight:600}
 .type-row{display:flex;gap:10px}
 .type-btn{flex:1;padding:13px;border-radius:var(--r);border:2px solid var(--g2);background:#fff;font-size:15px;font-weight:700;color:var(--g5);cursor:pointer;text-align:center}
@@ -294,6 +308,13 @@ input,select,textarea{font-family:inherit}
       <option value="pickup">Pickup Date</option>
       <option value="name">Name A-Z</option>
     </select>
+    <button class="bulk-cancel-btn" onclick="startBulkOrders()">☑ Select</button>
+  </div>
+  <div class="bulk-bar" id="bulk-bar-orders" style="display:none">
+    <label class="bulk-sel-all"><input type="checkbox" id="chk-all-orders" onchange="toggleAllOrders(this.checked)"> Select All</label>
+    <span class="bulk-count" id="bulk-count-orders">0 selected</span>
+    <button class="bulk-del-btn" onclick="bulkDeleteOrders()">🗑 Delete Selected</button>
+    <button class="bulk-cancel-btn" onclick="cancelBulkOrders()">Cancel</button>
   </div>
 </div>
 <div class="toolbar" id="tb-sizes" style="display:none">
@@ -303,6 +324,13 @@ input,select,textarea{font-family:inherit}
       <button class="chip active" id="szf-all" onclick="setSzF('all')">All</button>
     </div>
     <button class="btn-sz" onclick="openSzModal(null)">+ Save New Size</button>
+    <button class="bulk-cancel-btn" onclick="startBulkSizes()">☑ Select</button>
+  </div>
+  <div class="bulk-bar" id="bulk-bar-sizes" style="display:none">
+    <label class="bulk-sel-all"><input type="checkbox" id="chk-all-sizes" onchange="toggleAllSizes(this.checked)"> Select All</label>
+    <span class="bulk-count" id="bulk-count-sizes">0 selected</span>
+    <button class="bulk-del-btn" onclick="bulkDeleteSizes()">🗑 Delete Selected</button>
+    <button class="bulk-cancel-btn" onclick="cancelBulkSizes()">Cancel</button>
   </div>
 </div>
 <div class="toolbar" id="tb-customers" style="display:none">
@@ -359,8 +387,8 @@ input,select,textarea{font-family:inherit}
         <div class="fg4">
           <div class="fld"><label>قمیض کی لمبائی</label><input type="number" step="0.5" id="f-sk-qlength" placeholder="42"></div>
           <div class="fld"><label>بازو کی لمبائی</label><input type="number" step="0.5" id="f-sk-bazoo" placeholder="24"></div>
-          <div class="fld"><label>تیرہ</label><input type="number" step="0.5" id="f-sk-tehra" placeholder="17"></div>
-          <div class="fld"><label>دامن / گھیرا</label><input type="number" step="0.5" id="f-sk-daaman" placeholder="44"></div>
+          <div class="fld"><label>تیرا</label><input type="number" step="0.5" id="f-sk-tehra" placeholder="17"></div>
+          <div class="fld"><label>گھیرا</label><input type="number" step="0.5" id="f-sk-daaman" placeholder="44"></div>
           <div class="fld"><label>چھاتی</label><input type="number" step="0.5" id="f-sk-chest" placeholder="40"></div>
           <div class="fld"><label>کمر</label><input type="number" step="0.5" id="f-sk-kamar" placeholder="36"></div>
           <div class="fld"><label>Hip</label><input type="number" step="0.5" id="f-sk-hip" placeholder="40"></div>
@@ -436,8 +464,8 @@ input,select,textarea{font-family:inherit}
         <div class="fg4">
           <div class="fld"><label>قمیض کی لمبائی</label><input type="number" step="0.5" id="sz-sk-qlength" placeholder="42"></div>
           <div class="fld"><label>بازو کی لمبائی</label><input type="number" step="0.5" id="sz-sk-bazoo" placeholder="24"></div>
-          <div class="fld"><label>تیرہ</label><input type="number" step="0.5" id="sz-sk-tehra" placeholder="17"></div>
-          <div class="fld"><label>دامن / گھیرا</label><input type="number" step="0.5" id="sz-sk-daaman" placeholder="44"></div>
+          <div class="fld"><label>تیرا</label><input type="number" step="0.5" id="sz-sk-tehra" placeholder="17"></div>
+          <div class="fld"><label>گھیرا</label><input type="number" step="0.5" id="sz-sk-daaman" placeholder="44"></div>
           <div class="fld"><label>چھاتی</label><input type="number" step="0.5" id="sz-sk-chest" placeholder="40"></div>
           <div class="fld"><label>کمر</label><input type="number" step="0.5" id="sz-sk-kamar" placeholder="36"></div>
           <div class="fld"><label>Hip</label><input type="number" step="0.5" id="sz-sk-hip" placeholder="40"></div>
@@ -629,7 +657,8 @@ function render(){
     row.className = 'trow';
     row.setAttribute('data-id', o.id);
     row.innerHTML =
-      '<div class="td td-cid">'+esc(o.cid||'--')+'</div>'
+      (bulkModeOrders ? '<div class="trow-chk"><input type="checkbox" class="order-chk" data-id="'+o.id+'" '+(selectedOrders.has(o.id)?'checked':'')+' onchange="selectedOrders[this.checked?\'add\':\'delete\'](this.dataset.id);updateBulkCountOrders();this.closest(\'.trow\').classList.toggle(\'selected\',this.checked)" onclick="event.stopPropagation()"></div>' : '')
+      +'<div class="td td-cid">'+esc(o.cid||'--')+'</div>'
       +'<div class="td"><div class="cname">'+esc(o.name)+'</div><div class="cphone">'+esc(o.phone||'--')+'</div><div class="ctype">'+gt+(o.ban?' - '+esc(o.ban):'')+'</div></div>'
       +'<div class="td td-date s-'+s+'">'+fd(o.date)+'</div>'
       +'<div class="td"><span class="pill '+pc+'">'+pl+'</span></div>'
@@ -685,7 +714,7 @@ function renderSizes(){
   grid.className = 'sz-grid';
   list.forEach(function(s){
     var rows = [
-      ['قمیض لمبائی',s.sk_qlength],['بازو',s.sk_bazoo],['تیرہ',s.sk_tehra],['دامن',s.sk_daaman],
+      ['قمیض لمبائی',s.sk_qlength],['بازو',s.sk_bazoo],['تیرا',s.sk_tehra],['دامن',s.sk_daaman],
       ['چھاتی',s.sk_chest],['کمر',s.sk_kamar],['Hip',s.sk_hip],['کالر',s.sk_collar],
       ['کندھا',s.sk_kandha],['کف',s.sk_cuff],['کہنی',s.sk_elbow],['پاکٹ',s.sk_pocket],
       ['شلوار لمبائی',s.sk_slength],['شلوار گھیرا',s.sk_sghera],['پائنچہ',s.sk_paincha],['آسن',s.sk_aasan]
@@ -694,7 +723,8 @@ function renderSizes(){
     var card = document.createElement('div');
     card.className = 'sz-card';
     card.innerHTML =
-      '<div class="sz-top"><div class="sz-av">'+ini(s.name)+'</div>'
+      (bulkModeSizes ? '<input type="checkbox" class="sz-card-chk" data-id="'+s.id+'" '+(selectedSizes.has(s.id)?'checked':'')+' onchange="selectedSizes[this.checked?\'add\':\'delete\'](this.dataset.id);updateBulkCountSizes();this.closest(\'.sz-card\').classList.toggle(\'selected\',this.checked)">' : '')
+      +'<div class="sz-top"><div class="sz-av">'+ini(s.name)+'</div>'
       +'<div><div class="sz-nm">'+esc(s.name)+'</div><div class="sz-ph">'+esc(s.phone||'--')+'</div></div>'
       +'<span class="sz-badge sk">SK</span></div>'
       +(s.ban ? '<div class="ban-tag">Ban/Collar: '+esc(s.ban)+'</div>' : '')
@@ -821,7 +851,7 @@ function showProfile(key){
     szHtml = '<div style="font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--b7);padding-bottom:8px;margin-bottom:12px;border-bottom:2px solid var(--b1)">Saved Sizes</div>';
     szHtml += custSz.map(function(s){
       var rows = [
-        ['قمیض',s.sk_qlength],['بازو',s.sk_bazoo],['تیرہ',s.sk_tehra],
+        ['قمیض',s.sk_qlength],['بازو',s.sk_bazoo],['تیرا',s.sk_tehra],
         ['چھاتی',s.sk_chest],['کمر',s.sk_kamar],['Hip',s.sk_hip]
       ];
       rows = rows.filter(function(r){ return r[1]; });
@@ -994,6 +1024,18 @@ function confirmDel(){
     sizes = sizes.filter(function(x){ return x.id!==id; });
     persist(); renderSizes(); toast('Size deleted.','info');
     document.getElementById('cnt-sizes').textContent = sizes.length;
+  } else if(type==='bulk_orders'){
+    var n = selectedOrders.size;
+    orders = orders.filter(function(o){ return !selectedOrders.has(o.id); });
+    persist(); cancelBulkOrders(); render();
+    document.getElementById('cnt-customers').textContent = getProfiles().length;
+    toast(n + ' order(s) deleted.','info');
+  } else if(type==='bulk_sizes'){
+    var n = selectedSizes.size;
+    sizes = sizes.filter(function(s){ return !selectedSizes.has(s.id); });
+    persist(); cancelBulkSizes();
+    document.getElementById('cnt-sizes').textContent = sizes.length;
+    toast(n + ' size(s) deleted.','info');
   }
 }
 
@@ -1104,7 +1146,85 @@ document.addEventListener('click', function(e){
   }
 });
 
-/* BOOT */
+/* BULK SELECT - ORDERS */
+var bulkModeOrders = false;
+var selectedOrders = new Set();
+
+function startBulkOrders(){
+  bulkModeOrders = true;
+  selectedOrders.clear();
+  document.getElementById('bulk-bar-orders').style.display = 'flex';
+  document.getElementById('bulk-count-orders').textContent = '0 selected';
+  document.getElementById('chk-all-orders').checked = false;
+  render();
+}
+function cancelBulkOrders(){
+  bulkModeOrders = false;
+  selectedOrders.clear();
+  document.getElementById('bulk-bar-orders').style.display = 'none';
+  render();
+}
+function toggleAllOrders(checked){
+  document.querySelectorAll('.order-chk').forEach(function(chk){
+    chk.checked = checked;
+    if(checked) selectedOrders.add(chk.dataset.id);
+    else selectedOrders.delete(chk.dataset.id);
+  });
+  updateBulkCountOrders();
+}
+function updateBulkCountOrders(){
+  document.getElementById('bulk-count-orders').textContent = selectedOrders.size + ' selected';
+}
+function bulkDeleteOrders(){
+  if(!selectedOrders.size){ toast('Select at least one order.','err'); return; }
+  var n = selectedOrders.size;
+  _delId = '__bulk_orders__';
+  _delType = 'bulk_orders';
+  document.getElementById('del-title').textContent = 'Delete ' + n + ' Order' + (n>1?'s':'') + '?';
+  document.getElementById('del-msg').textContent = 'This cannot be undone.';
+  document.getElementById('del-modal').classList.add('open');
+}
+
+/* BULK SELECT - SIZES */
+var bulkModeSizes = false;
+var selectedSizes = new Set();
+
+function startBulkSizes(){
+  bulkModeSizes = true;
+  selectedSizes.clear();
+  document.getElementById('bulk-bar-sizes').style.display = 'flex';
+  document.getElementById('bulk-count-sizes').textContent = '0 selected';
+  document.getElementById('chk-all-sizes').checked = false;
+  document.getElementById('sz-body').classList.add('bulk-mode');
+  renderSizes();
+}
+function cancelBulkSizes(){
+  bulkModeSizes = false;
+  selectedSizes.clear();
+  document.getElementById('bulk-bar-sizes').style.display = 'none';
+  document.getElementById('sz-body').classList.remove('bulk-mode');
+  renderSizes();
+}
+function toggleAllSizes(checked){
+  document.querySelectorAll('.sz-card-chk').forEach(function(chk){
+    chk.checked = checked;
+    if(checked) selectedSizes.add(chk.dataset.id);
+    else selectedSizes.delete(chk.dataset.id);
+  });
+  updateBulkCountSizes();
+}
+function updateBulkCountSizes(){
+  document.getElementById('bulk-count-sizes').textContent = selectedSizes.size + ' selected';
+}
+function bulkDeleteSizes(){
+  if(!selectedSizes.size){ toast('Select at least one size.','err'); return; }
+  var n = selectedSizes.size;
+  _delId = '__bulk_sizes__';
+  _delType = 'bulk_sizes';
+  document.getElementById('del-title').textContent = 'Delete ' + n + ' Size' + (n>1?'s':'') + '?';
+  document.getElementById('del-msg').textContent = 'This cannot be undone.';
+  document.getElementById('del-modal').classList.add('open');
+}
 loadData();
 render();
 document.getElementById('cnt-customers').textContent = getProfiles().length;
