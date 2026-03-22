@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AL MUSTAFA TAILORS</title>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
 <style>
 :root{
   --b8:#1a3560;--b7:#2563a8;--b5:#4a90d9;--b3:#93c5e8;--b1:#deedf8;--b0:#f0f7fc;
@@ -520,6 +522,23 @@ input,select,textarea{font-family:inherit}
 
 <script>
 
+var db = null;
+function initFirebase(){
+  try{
+    if(typeof firebase === 'undefined'){ console.warn('Firebase SDK not loaded'); return; }
+    var app = firebase.initializeApp({
+      apiKey: "AIzaSyADifNf2BeKvqP094oPtCIdugQYq0QQcko",
+      authDomain: "al-mustafa-tailors.firebaseapp.com",
+      projectId: "al-mustafa-tailors",
+      storageBucket: "al-mustafa-tailors.firebasestorage.app",
+      messagingSenderId: "890327818525",
+      appId: "1:890327818525:web:cd554e12f459d54f1781f4"
+    });
+    db = firebase.firestore(app);
+    db.enablePersistence().catch(function(e){ console.warn('Offline persistence:', e.code); });
+    console.log('Firebase connected!');
+  }catch(e){ console.warn('Firebase init error', e); }
+}
 var SK='AMT_ORDERS', CK='AMT_COUNTER', SZK='AMT_SIZES', PS=35;
 var orders=[], sizes=[], counter=1, editId=null, szEditId=null;
 var filter='all', q='', page=1, curTab='orders', tT=null;
@@ -535,21 +554,64 @@ function uuid4(){
 
 function tryJSON(s){ try{ return s ? JSON.parse(s) : null; } catch(e){ return null; } }
 
+/* ---- FIREBASE SYNC ---- */
 function loadData(){
+  /* Load from localStorage first so app works instantly offline */
   try{
     var a=localStorage.getItem(SK), b=localStorage.getItem(CK), c=localStorage.getItem(SZK);
     if(a) orders = tryJSON(a) || [];
     if(b) counter = parseInt(b) || 1;
     if(c) sizes = tryJSON(c) || [];
-  }catch(e){ console.error('load error',e); }
+  }catch(e){}
 }
 
 function persist(){
+  /* Save to localStorage immediately */
   try{
     localStorage.setItem(SK, JSON.stringify(orders));
     localStorage.setItem(CK, String(counter));
     localStorage.setItem(SZK, JSON.stringify(sizes));
-  }catch(e){ console.error('save error',e); }
+  }catch(e){ console.error('local save error',e); }
+  /* Save to Firestore */
+  try{
+    if(db){
+      db.collection('shop').doc('orders').set({ data: JSON.stringify(orders), counter: counter });
+      db.collection('shop').doc('sizes').set({ data: JSON.stringify(sizes) });
+    }
+  }catch(e){ console.warn('Firestore save error',e); }
+}
+
+function syncFromCloud(){
+  if(!db){ 
+    document.getElementById('ctag').className='ctag off';
+    document.getElementById('ctag').innerHTML='&#128190; Offline';
+    return; 
+  }
+  /* Pull latest data from Firestore on load */
+  db.collection('shop').doc('orders').get().then(function(doc){
+    if(doc.exists){
+      var d = doc.data();
+      orders = tryJSON(d.data) || orders;
+      counter = d.counter || counter;
+      localStorage.setItem(SK, JSON.stringify(orders));
+      localStorage.setItem(CK, String(counter));
+    }
+  }).catch(function(){});
+  db.collection('shop').doc('sizes').get().then(function(doc){
+    if(doc.exists){
+      sizes = tryJSON(doc.data().data) || sizes;
+      localStorage.setItem(SZK, JSON.stringify(sizes));
+    }
+    render();
+    renderSizes();
+    document.getElementById('cnt-customers').textContent = getProfiles().length;
+    document.getElementById('cnt-sizes').textContent = sizes.length;
+    document.getElementById('ctag').className='ctag on';
+    document.getElementById('ctag').innerHTML='&#128190; Cloud';
+  }).catch(function(){ 
+    document.getElementById('ctag').className='ctag off';
+    document.getElementById('ctag').innerHTML='&#128190; Offline';
+  });
 }
 
 function makeCID(){ return 'CID-'+String(counter++).padStart(4,'0'); }
@@ -1229,6 +1291,8 @@ loadData();
 render();
 document.getElementById('cnt-customers').textContent = getProfiles().length;
 document.getElementById('cnt-sizes').textContent = sizes.length;
+initFirebase();
+syncFromCloud();
 </script>
 </body>
 </html>
