@@ -614,7 +614,10 @@ function syncFromCloud(){
   });
 }
 
-function makeCID(){ return 'CID-'+String(counter++).padStart(4,'0'); }
+function makeCID(){ 
+  if(orders.length === 0) counter = 1;
+  return 'CID-'+String(counter++).padStart(4,'0'); 
+}
 function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 function ini(n){ return (n||'?').split(' ').slice(0,2).map(function(w){ return w[0]||''; }).join('').toUpperCase(); }
 var MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1079,6 +1082,7 @@ function confirmDel(){
   closeDelModal();
   if(type==='order' && id){
     orders = orders.filter(function(x){ return x.id!==id; });
+    if(orders.length === 0) counter = 1;
     persist(); render(); toast('Order deleted.','info');
     document.getElementById('cnt-customers').textContent = getProfiles().length;
     if(curTab==='customers') renderProfiles();
@@ -1089,6 +1093,7 @@ function confirmDel(){
   } else if(type==='bulk_orders'){
     var n = selectedOrders.size;
     orders = orders.filter(function(o){ return !selectedOrders.has(o.id); });
+    if(orders.length === 0) counter = 1;
     persist(); cancelBulkOrders(); render();
     document.getElementById('cnt-customers').textContent = getProfiles().length;
     toast(n + ' order(s) deleted.','info');
