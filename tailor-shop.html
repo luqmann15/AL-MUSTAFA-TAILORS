@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AL MUSTAFA TAILORS</title>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@8.10.1/firebase-app.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/firebase@8.10.1/firebase-firestore.min.js"></script>
 <style>
 :root{
   --b8:#1a3560;--b7:#2563a8;--b5:#4a90d9;--b3:#93c5e8;--b1:#deedf8;--b0:#f0f7fc;
@@ -13,6 +13,21 @@
   --gn:#16a34a;--gnb:#dcfce7;--am:#d97706;--amb:#fef3c7;--rd:#dc2626;--rdb:#fee2e2;
   --r:8px;--sh:0 1px 3px rgba(0,0,0,.1);--sh2:0 2px 8px rgba(0,0,0,.13);
 }
+body.dark{
+  --b8:#0f1f3d;--b7:#4a90d9;--b5:#60a5e8;--b3:#1e3a5f;--b1:#1a2f4a;--b0:#152035;
+  --g0:#0f172a;--g1:#1e293b;--g2:#334155;--g4:#64748b;--g5:#94a3b8;--g7:#cbd5e1;--g9:#f1f5f9;
+  --gn:#22c55e;--gnb:#14532d;--am:#f59e0b;--amb:#451a03;--rd:#ef4444;--rdb:#450a0a;
+  --sh:0 1px 3px rgba(0,0,0,.4);--sh2:0 2px 8px rgba(0,0,0,.5);
+}
+body.dark .tcard,body.dark .modal,body.dark .sz-card,body.dark .pcard,body.dark .toolbar,body.dark .tabs{background:var(--g1)}
+body.dark .trow:hover{background:var(--g2)}
+body.dark input,body.dark select,body.dark textarea{background:var(--g2);color:var(--g9);border-color:var(--g2)}
+body.dark .btn-new{background:var(--g2);color:var(--b5);border-color:var(--b5)}
+body.dark .chip{background:var(--g2);color:var(--g7)}
+body.dark .ab{background:var(--g2);color:var(--g7)}
+body.dark .del-box{background:var(--g1)}
+body.dark .ac-list{background:var(--g1);border-color:var(--g2)}
+body.dark .ac-item:hover{background:var(--g2)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Segoe UI',Arial,sans-serif;background:var(--g0);color:var(--g9);font-size:18px;line-height:1.6}
 button{font-family:inherit;cursor:pointer}
@@ -147,7 +162,12 @@ input,select,textarea{font-family:inherit}
 .mfoot{padding:16px 24px;border-top:1px solid var(--g1);background:var(--g0);display:flex;gap:10px;justify-content:flex-end;align-items:center;border-radius:0 0 var(--r) var(--r);flex-shrink:0}
 .save-sz-chk{display:flex;align-items:center;gap:10px;margin-right:auto;font-size:17px;font-weight:700;color:var(--b7);cursor:pointer;user-select:none;white-space:nowrap}
 .save-sz-chk input[type=checkbox]{width:22px;height:22px;accent-color:var(--b7);cursor:pointer;flex-shrink:0}
-.bulk-bar{background:var(--b0);border-top:1px solid var(--b1);padding:10px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.photo-upload-box{border:2px dashed var(--g2);border-radius:var(--r);padding:16px;text-align:center;cursor:pointer;background:var(--g0);color:var(--g4);font-size:15px;transition:.15s}
+.photo-upload-box:hover{border-color:var(--b5);color:var(--b7);background:var(--b0)}
+.sz-card-photo{width:100%;height:180px;object-fit:cover;object-position:top;border-radius:var(--r) var(--r) 0 0;margin:-20px -20px 14px -20px;width:calc(100% + 40px);display:block}
+.btn-scan{padding:12px 20px;border-radius:var(--r);border:1px solid var(--b5);background:var(--b0);color:var(--b7);font-size:15px;font-weight:700;cursor:pointer}
+.btn-scan:hover{background:var(--b1)}
+.scan-loading{display:none;align-items:center;gap:10px;padding:12px 16px;background:var(--b0);border:1px solid var(--b1);border-radius:var(--r);margin:10px 24px;font-size:15px;color:var(--b7);font-weight:600}
 .bulk-sel-all{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:700;color:var(--g7);cursor:pointer}
 .bulk-sel-all input[type=checkbox]{width:20px;height:20px;accent-color:var(--b7);cursor:pointer}
 .bulk-count{font-size:15px;font-weight:700;color:var(--b7);margin-right:auto}
@@ -284,6 +304,8 @@ input,select,textarea{font-family:inherit}
     </div>
     <div style="display:flex;align-items:center;gap:8px">
       <div id="ctag" class="ctag off">&#128190; Local</div>
+      <button class="btn-new" onclick="toggleDark()" id="dark-btn" style="padding:10px 14px">🌙</button>
+      <button class="btn-new" onclick="openSettings()" style="padding:10px 14px">⚙️</button>
       <button class="btn-new" onclick="openNew()">+ New Order</button>
     </div>
   </div>
@@ -310,7 +332,8 @@ input,select,textarea{font-family:inherit}
       <option value="pickup">Pickup Date</option>
       <option value="name">Name A-Z</option>
     </select>
-    <button class="bulk-cancel-btn" onclick="startBulkOrders()">☑ Select</button>
+    <button class="bulk-cancel-btn" onclick="startBulkOrders()" style="font-size:15px;padding:10px 14px;color:var(--b7);border-color:var(--b5);font-weight:700">☑ Select</button>
+    <button class="btn-scan" onclick="triggerScanMain()">📷 Scan & Save Size</button>
   </div>
   <div class="bulk-bar" id="bulk-bar-orders" style="display:none">
     <label class="bulk-sel-all"><input type="checkbox" id="chk-all-orders" onchange="toggleAllOrders(this.checked)"> Select All</label>
@@ -326,7 +349,7 @@ input,select,textarea{font-family:inherit}
       <button class="chip active" id="szf-all" onclick="setSzF('all')">All</button>
     </div>
     <button class="btn-sz" onclick="openSzModal(null)">+ Save New Size</button>
-    <button class="bulk-cancel-btn" onclick="startBulkSizes()">☑ Select</button>
+    <button class="bulk-cancel-btn" onclick="startBulkSizes()" style="font-size:15px;padding:10px 14px;color:var(--b7);border-color:var(--b5);font-weight:700">☑ Select</button>
   </div>
   <div class="bulk-bar" id="bulk-bar-sizes" style="display:none">
     <label class="bulk-sel-all"><input type="checkbox" id="chk-all-sizes" onchange="toggleAllSizes(this.checked)"> Select All</label>
@@ -451,6 +474,14 @@ input,select,textarea{font-family:inherit}
           </div>
           <div class="fld"><label>Phone</label><input type="tel" id="sz-phone" placeholder="0300-1234567"></div>
         </div>
+        <div class="fld" style="margin-top:14px">
+          <label>Customer Photo <span style="font-size:13px;color:var(--g4);font-weight:400">(optional)</span></label>
+          <div class="photo-upload-box" onclick="document.getElementById('sz-photo-input').click()">
+            <img id="sz-photo-preview" src="" style="display:none;width:100%;max-height:160px;object-fit:cover;object-position:top;border-radius:6px;margin-bottom:8px">
+            <div id="sz-photo-placeholder">📷 Tap to add photo</div>
+          </div>
+          <input type="file" id="sz-photo-input" accept="image/*" capture="environment" style="display:none" onchange="handlePhotoUpload(this)">
+        </div>
       </div>
       <div class="fsec">
         <div class="fsec-t">Ban / Collar Style</div>
@@ -486,11 +517,31 @@ input,select,textarea{font-family:inherit}
         </div>
       </div>
     </div>
-    <div class="mfoot"><button class="btn-cancel" onclick="closeSzModal()">Cancel</button><button class="btn-save" onclick="saveSz()">Save Size</button></div>
+    <div class="mfoot">
+      <button class="btn-cancel" onclick="closeSzModal()">Cancel</button>
+      <button class="btn-scan" onclick="triggerScan()">📷 Scan Card</button>
+      <button class="btn-save" onclick="saveSz()">Save Size</button>
+    </div>
+    <input type="file" id="scan-input" accept="image/*" capture="environment" style="display:none" onchange="handleScan(this)">
+<input type="file" id="scan-input-main" accept="image/*" capture="environment" style="display:none" onchange="handleScanMain(this)">
   </div>
 </div>
 
-<!-- PROFILE MODAL -->
+<!-- SETTINGS MODAL -->
+<div class="del-modal" id="settings-modal">
+  <div class="del-box" style="max-width:460px;text-align:left">
+    <h3 style="margin-bottom:16px;font-size:18px">⚙️ Settings</h3>
+    <div class="fld" style="margin-bottom:16px">
+      <label style="font-size:15px;font-weight:700;color:var(--g7);display:block;margin-bottom:8px">Anthropic API Key (for Scan feature)</label>
+      <input type="password" id="settings-apikey" placeholder="sk-ant-api03-..." style="width:100%;padding:10px 12px;border:1px solid var(--g2);border-radius:var(--r);font-size:15px">
+      <div style="font-size:13px;color:var(--g4);margin-top:6px">Saved only on this device. Never uploaded anywhere.</div>
+    </div>
+    <div class="del-btns">
+      <button class="del-no" onclick="closeSettings()">Cancel</button>
+      <button class="del-yes" style="background:var(--b7)" onclick="saveSettings()">Save</button>
+    </div>
+  </div>
+</div>
 <div class="ov" id="pov" onclick="pbgClick(event)">
   <div class="modal wide">
     <div class="mhd">
@@ -518,6 +569,11 @@ input,select,textarea{font-family:inherit}
   </div>
 </div>
 
+<input type="file" id="scan-input-main" accept="image/*" capture="environment" style="display:none" onchange="handleScanMain(this)">
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;cursor:pointer" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" style="max-width:95vw;max-height:95vh;object-fit:contain;border-radius:8px;box-shadow:0 4px 32px rgba(0,0,0,.5)">
+  <div style="position:absolute;top:16px;right:20px;color:#fff;font-size:28px;font-weight:800;cursor:pointer" onclick="closeLightbox()">✕</div>
+</div>
 <div class="toast" id="toast"><span class="td2 ok" id="tdot"></span><span id="tmsg"></span></div>
 
 <script>
@@ -540,7 +596,7 @@ function initFirebase(){
   }catch(e){ console.warn('Firebase init error', e); }
 }
 var SK='AMT_ORDERS', CK='AMT_COUNTER', SZK='AMT_SIZES', PS=35;
-var orders=[], sizes=[], counter=1, editId=null, szEditId=null;
+var orders=[], sizes=[], counter=1, editId=null, szEditId=null, szPhoto=null;
 var filter='all', q='', page=1, curTab='orders', tT=null;
 var szF='all', curOType='sk', curSzType='sk';
 var O_SK=['qlength','bazoo','tehra','daaman','chest','kamar','hip','collar','kandha','cuff','elbow','pocket','slength','sghera','paincha','aasan'];
@@ -789,6 +845,7 @@ function renderSizes(){
     card.className = 'sz-card';
     card.innerHTML =
       (bulkModeSizes ? '<input type="checkbox" class="sz-card-chk" data-id="'+s.id+'" '+(selectedSizes.has(s.id)?'checked':'')+' onchange="selectedSizes[this.checked?\'add\':\'delete\'](this.dataset.id);updateBulkCountSizes();this.closest(\'.sz-card\').classList.toggle(\'selected\',this.checked)">' : '')
+      +(s.photo ? '<img src="'+s.photo+'" class="sz-card-photo" onclick="event.stopPropagation();openLightbox(\''+s.photo+'\')" style="cursor:zoom-in" title="Click to view full size">' : '')
       +'<div class="sz-top"><div class="sz-av">'+ini(s.name)+'</div>'
       +'<div><div class="sz-nm">'+esc(s.name)+'</div><div class="sz-ph">'+esc(s.phone||'--')+'</div></div>'
       +'<span class="sz-badge sk">SK</span></div>'
@@ -807,18 +864,25 @@ function renderSizes(){
 
 function openSzModal(id){
   szEditId = id || null;
+  szPhoto = null;
   var s = id ? sizes.find(function(x){ return x.id===id; }) : null;
   document.getElementById('sz-title').textContent = s ? 'Edit Size' : 'Save Customer Size';
-  document.getElementById('sz-sub').textContent = s ? s.name+' - '+(s.type==='sk'?'Shalwar Kameez':'Dress Shirt') : 'Saved independently from orders';
+  document.getElementById('sz-sub').textContent = s ? s.name+' - Shalwar Kameez' : 'Saved independently from orders';
   document.getElementById('sz-name').value = '';
   document.getElementById('sz-phone').value = '';
   document.getElementById('sz-ban').value = '';
+  /* reset photo */
+  var prev = document.getElementById('sz-photo-preview');
+  var ph = document.getElementById('sz-photo-placeholder');
+  prev.src=''; prev.style.display='none';
+  ph.textContent='📷 Tap to add photo';
   O_SK.forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=''; });
   if(s){
     document.getElementById('sz-name').value = s.name||'';
     document.getElementById('sz-phone').value = s.phone||'';
     document.getElementById('sz-ban').value = s.ban||'';
     O_SK.forEach(function(f){ var e=document.getElementById('sz-sk-'+f); if(e) e.value=s['sk_'+f]||''; });
+    if(s.photo){ prev.src=s.photo; prev.style.display='block'; ph.textContent='✅ Photo added — tap to change'; szPhoto=s.photo; }
   }
   document.getElementById('sz-ov').classList.add('open');
   setTimeout(function(){ document.getElementById('sz-name').focus(); }, 40);
@@ -836,6 +900,7 @@ function saveSz(){
     phone: document.getElementById('sz-phone').value.trim(),
     ban: gv('sz-ban'),
     type: curSzType,
+    photo: szPhoto || (orig ? orig.photo : null),
     created: orig ? orig.created : new Date().toISOString(),
     updated: new Date().toISOString()
   };
@@ -1292,12 +1357,208 @@ function bulkDeleteSizes(){
   document.getElementById('del-msg').textContent = 'This cannot be undone.';
   document.getElementById('del-modal').classList.add('open');
 }
+function openLightbox(src){ 
+  document.getElementById('lightbox-img').src = src; 
+  document.getElementById('lightbox').style.display = 'flex'; 
+}
+function closeLightbox(){ 
+  document.getElementById('lightbox').style.display = 'none'; 
+}
+
+/* ---- PHOTO UPLOAD ---- */
+function handlePhotoUpload(input){
+  var file = input.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var img = new Image();
+    img.onload = function(){
+      var canvas = document.createElement('canvas');
+      /* Target size: max 600px on longest side, good quality for faces */
+      var MAX = 600;
+      var w = img.width, h = img.height;
+      if(w > h){ if(w>MAX){ h=Math.round(h*(MAX/w)); w=MAX; } }
+      else { if(h>MAX){ w=Math.round(w*(MAX/h)); h=MAX; } }
+      canvas.width = w; canvas.height = h;
+      var ctx = canvas.getContext('2d');
+      /* White background in case of transparent PNG */
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, w, h);
+      ctx.drawImage(img, 0, 0, w, h);
+      /* Quality 0.75 — good balance of size vs clarity */
+      szPhoto = canvas.toDataURL('image/jpeg', 0.75);
+      var prev = document.getElementById('sz-photo-preview');
+      var ph = document.getElementById('sz-photo-placeholder');
+      prev.src = szPhoto;
+      prev.style.display = 'block';
+      ph.textContent = '✅ Photo added — tap to change';
+      /* Show approx file size */
+      var kb = Math.round(szPhoto.length * 0.75 / 1024);
+      ph.textContent = '✅ Photo ready (~'+kb+'KB) — tap to change';
+    };
+    img.onerror = function(){ toast('Could not read image file.','err'); };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ---- SETTINGS ---- */
+function toggleDark(){
+  var isDark = document.body.classList.toggle('dark');
+  localStorage.setItem('AMT_DARK', isDark ? '1' : '0');
+  document.getElementById('dark-btn').textContent = isDark ? '☀️' : '🌙';
+}
+
+function openSettings(){
+  var k = localStorage.getItem('AMT_APIKEY')||'';
+  document.getElementById('settings-apikey').value = k;
+  document.getElementById('settings-modal').classList.add('open');
+}
+function closeSettings(){ document.getElementById('settings-modal').classList.remove('open'); }
+function saveSettings(){
+  var k = document.getElementById('settings-apikey').value.trim();
+  if(k) localStorage.setItem('AMT_APIKEY', k);
+  else localStorage.removeItem('AMT_APIKEY');
+  closeSettings();
+  toast('Settings saved!');
+}
+
+/* ---- SCAN CARD ---- */
+function triggerScanMain(){
+  var k = localStorage.getItem('AMT_APIKEY');
+  if(!k){ toast('Please add your API key in ⚙️ Settings first.','err'); return; }
+  document.getElementById('scan-input-main').click();
+}
+
+function handleScanMain(input){
+  var file = input.files[0];
+  if(!file) return;
+  var k = localStorage.getItem('AMT_APIKEY');
+  if(!k){ toast('No API key found.','err'); return; }
+  toast('📷 Scanning... please wait');
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var base64 = e.target.result.split(',')[1];
+    var mediaType = file.type || 'image/jpeg';
+    var fields = ['قمیض کی لمبائی','بازو کی لمبائی','تیرا','گھیرا','چھاتی','کمر','Hip','کالر / بین کی لمبائی','کندھا','کف','کہنی','پاکٹ','شلوار کی لمبائی','شلوار کا گھیرا','پائنچہ','آسن'];
+    var fieldIds = ['f-sk-qlength','f-sk-bazoo','f-sk-tehra','f-sk-daaman','f-sk-chest','f-sk-kamar','f-sk-hip','f-sk-collar','f-sk-kandha','f-sk-cuff','f-sk-elbow','f-sk-pocket','f-sk-slength','f-sk-sghera','f-sk-paincha','f-sk-aasan'];
+    var prompt = 'This is a handwritten tailor measurement card. Extract exactly 16 measurements in this order:\n'+fields.map(function(f,i){ return (i+1)+'. '+f; }).join('\n')+'\n\nThe numbers may be written vertically one per line without labels. Return ONLY a JSON array of 16 numbers in order, using null if missing. Example: [42,24,17,44,40,36,40,15,18,9,12,6,40,14,8,22]';
+    fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-calls':'true'},
+      body:JSON.stringify({model:'claude-opus-4-5',max_tokens:300,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mediaType,data:base64}},{type:'text',text:prompt}]}]})
+    })
+    .then(function(r){
+      if(!r.ok){ return r.json().then(function(e){ throw new Error(e.error&&e.error.message||'API error '+r.status); }); }
+      return r.json();
+    })
+    .then(function(data){
+      console.log('Scan response:', JSON.stringify(data));
+      var text = data.content && data.content[0] && data.content[0].text;
+      if(!text){ toast('No response from AI. Try again.','err'); return; }
+      text = text.trim().replace(/```json|```/g,'').trim();
+      try{
+        var nums = JSON.parse(text);
+        if(!Array.isArray(nums)) throw new Error('Not array');
+        openNew();
+        setTimeout(function(){
+          var filled=0;
+          nums.forEach(function(val,i){
+            if(i<fieldIds.length && val!==null && val!==undefined){
+              var el=document.getElementById(fieldIds[i]);
+              if(el){ el.value=val; filled++; }
+            }
+          });
+          if(filled>0) toast('✅ '+filled+' fields filled! Add customer name and save.');
+          else toast('No measurements found. Try clearer photo.','err');
+        }, 200);
+      }catch(e){
+        console.error('Parse error:', e, 'Text:', text);
+        toast('Could not read measurements. Try clearer photo.','err');
+      }
+      input.value='';
+    })
+    .catch(function(e){
+      console.error('Scan error:', e);
+      toast('Scan failed: '+e.message,'err');
+      input.value='';
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
+function triggerScan(){
+  var k = localStorage.getItem('AMT_APIKEY');
+  if(!k){ toast('Please add your API key in ⚙️ Settings first.','err'); return; }
+  document.getElementById('scan-input').click();
+}
+
+function handleScan(input){
+  var file = input.files[0];
+  if(!file) return;
+  var k = localStorage.getItem('AMT_APIKEY');
+  if(!k){ toast('No API key found.','err'); return; }
+  toast('📷 Scanning... please wait');
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var base64 = e.target.result.split(',')[1];
+    var mediaType = file.type || 'image/jpeg';
+    var fields = ['قمیض کی لمبائی','بازو کی لمبائی','تیرا','گھیرا','چھاتی','کمر','Hip','کالر / بین کی لمبائی','کندھا','کف','کہنی','پاکٹ','شلوار کی لمبائی','شلوار کا گھیرا','پائنچہ','آسن'];
+    var fieldIds = ['sz-sk-qlength','sz-sk-bazoo','sz-sk-tehra','sz-sk-daaman','sz-sk-chest','sz-sk-kamar','sz-sk-hip','sz-sk-collar','sz-sk-kandha','sz-sk-cuff','sz-sk-elbow','sz-sk-pocket','sz-sk-slength','sz-sk-sghera','sz-sk-paincha','sz-sk-aasan'];
+    var prompt = 'This is a handwritten tailor measurement card. Extract exactly 16 measurements in this order:\n'+fields.map(function(f,i){ return (i+1)+'. '+f; }).join('\n')+'\n\nThe numbers may be written vertically one per line without labels. Return ONLY a JSON array of 16 numbers in order, using null if missing. Example: [42,24,17,44,40,36,40,15,18,9,12,6,40,14,8,22]';
+    fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','x-api-key':k,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-calls':'true'},
+      body:JSON.stringify({model:'claude-opus-4-5',max_tokens:300,messages:[{role:'user',content:[{type:'image',source:{type:'base64',media_type:mediaType,data:base64}},{type:'text',text:prompt}]}]})
+    })
+    .then(function(r){ 
+      if(!r.ok){ return r.json().then(function(e){ throw new Error(e.error&&e.error.message||'API error '+r.status); }); }
+      return r.json(); 
+    })
+    .then(function(data){
+      console.log('Scan response:', JSON.stringify(data));
+      var text = data.content && data.content[0] && data.content[0].text;
+      if(!text){ toast('No response from AI. Try again.','err'); return; }
+      text = text.trim().replace(/```json|```/g,'').trim();
+      try{
+        var nums = JSON.parse(text);
+        if(!Array.isArray(nums)) throw new Error('Not array');
+        var filled=0;
+        nums.forEach(function(val,i){
+          if(i<fieldIds.length && val!==null && val!==undefined){
+            var el=document.getElementById(fieldIds[i]);
+            if(el){ el.value=val; filled++; }
+          }
+        });
+        if(filled > 0){
+          toast('✅ '+filled+' fields filled!');
+        } else {
+          toast('No measurements found. Try a clearer photo.','err');
+        }
+      }catch(e){ 
+        console.error('Parse error:', e, 'Text was:', text);
+        toast('Could not read measurements. Try clearer photo.','err'); 
+      }
+      input.value='';
+    })
+    .catch(function(e){ 
+      console.error('Scan error:', e);
+      toast('Scan failed: '+e.message,'err'); 
+      input.value=''; 
+    });
+  };
+  reader.readAsDataURL(file);
+}
+
 loadData();
+if(localStorage.getItem('AMT_DARK')==='1'){ document.body.classList.add('dark'); document.getElementById('dark-btn').textContent='☀️'; }
 render();
 document.getElementById('cnt-customers').textContent = getProfiles().length;
 document.getElementById('cnt-sizes').textContent = sizes.length;
-initFirebase();
-syncFromCloud();
+window.addEventListener('load', function(){
+  initFirebase();
+  syncFromCloud();
+});
 </script>
 </body>
 </html>
